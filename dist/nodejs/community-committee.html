@@ -1,0 +1,1322 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Node.js Meeting Participation</title>
+    <style>
+      * { box-sizing: border-box; }
+
+body {
+  margin-top: 50px;
+}
+
+.sr-only {
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+table {
+  text-align: center;
+  display: block;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: static;
+  margin-left: 140px;
+}
+
+tr {
+  position: relative;
+  height: 32px;
+}
+
+tr:not(:first-of-type):before {
+  content: "";
+  width: calc(100vw - 160px);
+  background-color: #e7f4fa;
+  position: absolute;
+  border-radius: 4px;
+  height: 30px;
+  transform: translateY(1px);
+}
+
+td {
+  background-color: transparent;
+  position: relative;
+  color: transparent;
+  font-size: 0;
+  line-height: 24px;
+}
+
+th {
+  padding: 0 8px;
+  white-space: pre;
+}
+
+td:first-of-type, th:first-of-type {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  text-align: left;
+  font-weight: bold;
+  white-space: pre;
+  position: absolute;
+  left: 0;
+  width: 150px;
+  text-overflow: ellipsis;
+  z-index: 999;
+  overflow: hidden;
+}
+
+td:first-of-type a, th:first-of-type a{
+  color: black;
+  text-decoration: underline;
+  padding: 0 8px;
+}
+
+td.present:after {
+  content: "✔";
+  color: white;
+  position: absolute;
+  z-index: 1;
+  font-size: 12px;
+  left: calc(50% + 1px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+td.present:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: green;
+}
+
+td.absent:after {
+  content: "·";
+  color: white;
+  position: absolute;
+  z-index: 1;
+  font-size: 64px;
+  line-height: 24px;
+  left: calc(50% + 1px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+nav {
+  height: 49px;
+  box-shadow: inset 0 -1px 0px 0px #999;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  padding-top: 4px;
+  width: 100%;
+  left: 4px;
+  z-index: 9999;
+  background: white;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline;
+  padding: 0;
+  border-radius: 2px 2px 0 0;
+  border: 1px solid #999;
+  margin-right: -1px;
+  float: left;
+  height: 45px;
+}
+
+nav ul li:hover {
+  background-color: #e7f4fa;
+}
+
+nav ul li a {
+  color: black;
+  line-height: 45px;
+  text-decoration: none;
+  display: block;
+  padding: 0 16px;
+}
+
+nav ul li.active {
+  background-color: white;
+  border-bottom-width: 0px;
+  box-shadow: inset 0 1px 0px 0px #999
+}
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class=><a href="../nodejs/TSC.html">nodejs/TSC</a></li>
+<li class=active><a href="../nodejs/community-committee.html">nodejs/community-committee</a></li>
+<li class=><a href="../nodejs/security-wg.html">nodejs/security-wg</a></li>
+<li class=><a href="../nodejs/user-feedback.html">nodejs/user-feedback</a></li>
+<li class=><a href="../nodejs/website-redesign.html">nodejs/website-redesign</a></li>
+      </ul>
+    </nav>
+    <table><tbody>
+  <tr>
+    <th class="sr-only">Username</th>
+    <th>Wed Mar 07 2018</th>
+    <th>Wed Feb 21 2018</th>
+    <th>Wed Feb 07 2018</th>
+    <th>Wed Jan 24 2018</th>
+    <th>Wed Jan 10 2018</th>
+    <th>Wed Dec 27 2017</th>
+    <th>Wed Dec 13 2017</th>
+    <th>Wed Nov 29 2017</th>
+    <th>Tue Nov 07 2017</th>
+    <th>Wed Oct 25 2017</th>
+    <th>Wed Sep 27 2017</th>
+    <th>Wed Sep 13 2017</th>
+    <th>Wed Aug 30 2017</th>
+    <th>Wed Aug 02 2017</th>
+    <th>Wed Jul 05 2017</th>
+    <th>Wed Jun 21 2017</th>
+    <th>Wed Jun 07 2017</th>
+    <th>Sun May 21 2017</th>
+    <th>Wed Apr 26 2017</th>
+    <th>Wed Apr 12 2017</th>
+    <th>Tue Apr 04 2017</th>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/addaleax" target="_blank">@addaleax</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/amiller-gh" target="_blank">@amiller-gh</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/ashleygwilliams" target="_blank">@ashleygwilliams</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/bamieh" target="_blank">@bamieh</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/bnb" target="_blank">@bnb</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/chowdhurian" target="_blank">@chowdhurian</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/codeekage" target="_blank">@codeekage</a></td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/diegozoracky" target="_blank">@diegozoracky</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/dshaw" target="_blank">@dshaw</a></td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/fathyb" target="_blank">@fathyb</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/fhemberger" target="_blank">@fhemberger</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/fhinkel" target="_blank">@fhinkel</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/foadlab" target="_blank">@foadlab</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/gr2m" target="_blank">@gr2m</a></td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/hackygolucky" target="_blank">@hackygolucky</a></td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/jasnell" target="_blank">@jasnell</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/jembijoux" target="_blank">@jembijoux</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/joesepi" target="_blank">@joesepi</a></td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/jpwesselink" target="_blank">@jpwesselink</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/kapke" target="_blank">@kapke</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/komawar" target="_blank">@komawar</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/maurice-hayward" target="_blank">@maurice-hayward</a></td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/mgalexander" target="_blank">@mgalexander</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/mhdawson" target="_blank">@mhdawson</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/mrhinkle" target="_blank">@mrhinkle</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/msmichellegar" target="_blank">@msmichellegar</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/mylesborins" target="_blank">@mylesborins</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/nebrius" target="_blank">@nebrius</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/nexxy" target="_blank">@nexxy</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/obensource" target="_blank">@obensource</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/oe" target="_blank">@oe</a></td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/patrickheneise" target="_blank">@patrickheneise</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/pup" target="_blank">@pup</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/rachelnicole" target="_blank">@rachelnicole</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/refack" target="_blank">@refack</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/renrutnnej" target="_blank">@renrutnnej</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/richardlitt" target="_blank">@richardlitt</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/richlitt" target="_blank">@richlitt</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/sarahkconway" target="_blank">@sarahkconway</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/sarahnovotny" target="_blank">@sarahnovotny</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/steveklabnik" target="_blank">@steveklabnik</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/therebelrobot" target="_blank">@therebelrobot</a></td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/tiriel" target="_blank">@tiriel</a></td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/tobyfarley" target="_blank">@tobyfarley</a></td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/waleedashraf" target="_blank">@waleedashraf</a></td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/williamkapke" target="_blank">@williamkapke</a></td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+  </tr>
+  <tr>
+    <td><a href="https://www.github.com/zibbykeaton" target="_blank">@zibbykeaton</a></td>
+    <td class="absent">Absent</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="present">Present</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+    <td class="absent">Absent</td>
+  </tr></tbody></table>
+  </body>
+</html>
