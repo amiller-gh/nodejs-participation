@@ -19,7 +19,7 @@ table {
 }
 
 tr {
-  position: relative;
+  position: static;
   height: 32px;
 }
 
