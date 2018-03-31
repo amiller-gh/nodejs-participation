@@ -87,11 +87,11 @@ async function write(repos, repo, content) {
   let desc = repo.split('/');
   try {
     await fs.mkdirAsync(SITE_DEST);
-    //await fs.mkdirAsync(path.join(SITE_DEST, desc[0]));
+    await fs.mkdirAsync(path.join(SITE_DEST, desc[0]));
   } catch (e) { 
     console.log('error', e);
   }
-  await fs.writeFileAsync(path.join(SITE_DEST, `${desc[1]}.html`), html);
+  await fs.writeFileAsync(path.join(SITE_DEST, desc[0], `${desc[1]}.html`), html);
 }
 
 async function run(){
