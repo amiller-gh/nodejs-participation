@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include header %>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <% for (var r of repos) { %>
+          <% var active = r === repo ? 'active' : ''; %>
+          <% let href = '../' + r + '.html'; %>
+          <li class="<%=active%>"><a href="<%=href%>"><%=r%></a></li>
+        <% } %>
+      </ul>
+    </nav>
+    <%- include table %>
+  </body>
+</html>
