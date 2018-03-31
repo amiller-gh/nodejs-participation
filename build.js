@@ -9,7 +9,7 @@ const ejs = require('ejs');
 
 const REPOS = require('./repositories.json').sort();
 const REPO_DEST = path.join(__dirname, 'repo');
-const SITE_DEST = path.join(__dirname, 'dist');
+const SITE_DEST = path.join(__dirname, 'dist/nodejs');
 const PRESENT_SECTION_REGEXP = /# Present([^#]*)#/gmi;
 const GITHUB_USERNAME_REGEXP = /@[a-zA-Z0-9-]+/g;
 
@@ -86,12 +86,11 @@ async function write(repos, repo, content) {
   let html = await ejs.renderFile('templates/page.ejs', data, options);
   let desc = repo.split('/');
   try {
-    await fs.mkdirAsync(SITE_DEST);
-    await fs.mkdirAsync(path.join(SITE_DEST, desc[0]));
+    await fs.mkdirAsync(path.join(SITE_DEST));
   } catch (e) { 
     console.log('error', e);
   }
-  await fs.writeFileAsync(path.join(SITE_DEST, desc[0], `${desc[1]}.html`), html);
+  await fs.writeFileAsync(path.join(SITE_DEST, `${desc[1]}.html`), html);
 }
 
 async function run(){
