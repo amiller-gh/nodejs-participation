@@ -63,4 +63,4 @@ typings/
 
 # Build project files
 repo
-dist
+dist/nodejs
