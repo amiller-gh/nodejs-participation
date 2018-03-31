@@ -5,6 +5,7 @@ const path = require('path');
 const fs = P.promisifyAll(require('fs'));
 const rimraf = P.promisify(require('rimraf'));
 const ghdownload = P.promisify(require('download-git-repo'));
+const ejs = require('ejs');
 
 const REPOS = require('./repositories.json').sort();
 const REPO_DEST = path.join(__dirname, 'repo');
@@ -70,64 +71,26 @@ async function parse(REPO){
   return { members: MEMBERS, dates: ALL_DATES };
 }
 
-// Format the parsed data from all markdown files into an HTML table.
-async function format(data) {
-  let TABLE = `<table><tbody>`;
-  let members = Object.keys(data.members).sort();
-  let allDates = [...data.dates.entries()].sort().reverse();
-
-  // Table headers.
-  TABLE += `\n  <tr>`
-  TABLE += `\n    <th class="sr-only">Username</th>`;
-  for (let [date] of allDates) {
-    TABLE += `\n    <th>${(new Date(date)).toDateString()}</th>`
-  }
-  TABLE += `\n  </tr>`
-
-  // Member rows.
-  for (let user of members) {
-    TABLE += `\n  <tr>`;
-    TABLE += `\n    <td><a href="https://www.github.com/${user.replace('@', '')}" target="_blank">${user}</a></td>`;
-    for (let [date] of allDates) {
-      let isPresent = data.members[user].has(date);
-      TABLE += `\n    <td class="${isPresent ? 'present' : 'absent'}">${isPresent ? 'Present' : 'Absent'}</td>`;
-    }
-    TABLE += `\n  </tr>`;
-  }
-  TABLE += `</tbody></table>`;
-
-  return TABLE;
-}
-
 // Write the final HTML document to disk.
-async function write(repos, repo, table) {
+async function write(repos, repo, content) {
 
-  let html = `
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Node.js Meeting Participation</title>
-    <style>
-      ${await fs.readFileAsync('./styles.css')}
-    </style>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        ${repos.map((n) => `<li class=${n === repo ? 'active' : ''}><a href="../${n}.html">${n}</a></li>`).join('\n')}
-      </ul>
-    </nav>
-    ${table}
-  </body>
-</html>
-`;
-
+  let options = {
+    'client': true,
+    'root': './'
+  };
+  let data = {
+    'repos': repos,
+    'repo' : repo,
+    'content': content
+  };
+  let html = await ejs.renderFile('templates/page.ejs', data, options);
   let desc = repo.split('/');
   try {
     await fs.mkdirAsync(SITE_DEST);
     await fs.mkdirAsync(path.join(SITE_DEST, desc[0]));
-  } catch (e) { }
-
+  } catch (e) { 
+    console.log('error', e);
+  }
   await fs.writeFileAsync(path.join(SITE_DEST, desc[0], `${desc[1]}.html`), html);
 }
 
@@ -142,10 +105,8 @@ async function run(){
     await fetch(repo);
     // Parse the member participant data for each meeting
     let data = await parse(repo);
-    // Generate an HTML table using the data
-    let table = await format(data);
     // Write a new HTML document for this page
-    await write(REPOS.slice(), repo, table);
+    await write(REPOS.slice(), repo, data);
   }
 }
 
