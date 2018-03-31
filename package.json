@@ -6,7 +6,7 @@
   "author": "Adam Miller <ammiller@linkeidn.com>",
   "license": "MIT",
   "scripts": {
-    "build": "node build.js"
+    "start": "node build.js"
   },
   "dependencies": {
     "bluebird": "^3.5.1",
