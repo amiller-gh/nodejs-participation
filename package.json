@@ -6,7 +6,7 @@
   "author": "Adam Miller <ammiller@linkeidn.com>",
   "license": "MIT",
   "scripts": {
-    "start": "http-server",
+    "start": "http-server ./",
     "postinstall": "node build.js"
   },
   "dependencies": {
