@@ -68,7 +68,7 @@ td:first-of-type a, th:first-of-type a{
 }
 
 td.present:after {
-  content: "✔";
+  content: "\2714";
   color: white;
   position: absolute;
   z-index: 1;
@@ -91,7 +91,7 @@ td.present:before {
 }
 
 td.absent:after {
-  content: "·";
+  content: "\00B7";
   color: white;
   position: absolute;
   z-index: 1;

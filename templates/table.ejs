@@ -1,0 +1,26 @@
+<table>
+  <tbody>
+    <tr>
+      <th class="sr-only">Username</th>
+      <%
+        let members = Object.keys(content.members).sort();
+        let allDates = [...content.dates.entries()].sort().reverse();
+      %>
+
+      <% for (let [date] of allDates) { %>
+        <th><%=new Date(date).toDateString()%></th>
+      <% } %>
+    </tr>
+    <% for (let user of members) { %>
+      <tr>
+        <% let href = "https://www.github.com/" + user.replace('@', ''); %>
+        <td><a href="<%=href%>" target="_blank"><%=user%></a></td>
+        <% for (let [date] of allDates) {
+          let isPresent = content.members[user].has(date) ? 'present' : 'absent';
+        %>
+          <td class="<%=isPresent%>"><%=isPresent%></td>
+        <% } %>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
